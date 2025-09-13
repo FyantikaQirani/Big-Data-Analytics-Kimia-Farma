@@ -1,8 +1,8 @@
 -- -------------------------------------------------------------
 -- QUERY: Membuat tabel ringkasan transaksi di Kimia Farma
--- Project: rakamin-academy-data-science-1
+-- Project: rakamin-academy-data-analyst
 -- Dataset: Kimia_Farma_Dataset
--- Tabel output: summary_transaksi
+-- Tabel output: kf_final_transaction
 -- -------------------------------------------------------------
 
 CREATE TABLE `rakamin-academy-data-science-1.Kimia_Farma_Dataset.summary_transaksi` AS
@@ -38,8 +38,8 @@ WITH main AS (
     END AS persentase_gross_laba,
 
     -- Perhitungan nilai penjualan bersih setelah diskon
-    p.price * (1 - t.discount_percentage) AS nett_sales
-
+    p.price * (1 - t.discount_percentage) AS nett_sales 
+  
   FROM
     `rakamin-academy-data-science-1.Kimia_Farma_Dataset.kf_final_transaction` AS t
 
@@ -72,3 +72,4 @@ FROM
 -- Mengurutkan hasil berdasarkan tanggal transaksi terbaru
 ORDER BY
   date DESC;
+
